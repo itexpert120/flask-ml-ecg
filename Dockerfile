@@ -9,6 +9,10 @@ RUN apt-get -y update
 RUN apt-get update && apt-get install python3 python3-pip -y
 RUN apt-get update && apt-get install ffmpeg libsm6 libxext6 git  -y
 
+# git lfs
+RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
+RUN apt-get install git-lfs -y
+
 #copy all the files
 RUN git lfs install
 COPY . .
