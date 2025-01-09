@@ -19,4 +19,4 @@ RUN curl -o ecg_classification_model.tflite https://utfs.io/f/A96e4rcb6rkCNlFFMl
 RUN pip3 install -r requirements.txt
 
 #Run the command
-CMD waitress-serve --host=127.0.0.1 --port=$PORT app:app
+CMD waitress-serve --host=0.0.0.0 --port=$PORT app:app
