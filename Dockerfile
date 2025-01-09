@@ -22,8 +22,8 @@ RUN git clone https://github.com/itexpert120/flask-ml-ecg
 RUN cd flask-ml-ecg
 
 RUN git lfs install
-RUN git fetch --prune
 RUN git checkout main
+RUN git PULL
 RUN git lfs pull
 
 RUN pip3 install -r requirements.txt
