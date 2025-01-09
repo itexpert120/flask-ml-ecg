@@ -5,7 +5,7 @@ FROM python:3.12.7
 WORKDIR /
 
 #copy all the files
-COPY . .
+COPY . ..
 
 #Install the dependencies
 RUN apt-get -y update
@@ -16,5 +16,8 @@ RUN pip3 install -r requirements.txt
 #Expose the required port
 EXPOSE 5000
 
+# check if the model is present
+RUN ls -la
+
 #Run the command
-CMD waitress-serve --host=0.0.0.0 --port=$PORT app:app
+CMD waitress-serve --host=127.0.0.1 --port=$PORT app:app
