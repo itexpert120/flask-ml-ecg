@@ -14,8 +14,11 @@ RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.d
 RUN apt-get install git-lfs -y
 
 #copy all the files
-RUN git lfs install
 COPY . .
+COPY .git/ .git
+RUN git lfs install
+RUN git fetch --prune
+RUN git checkout main
 RUN git lfs pull
 
 RUN pip3 install -r requirements.txt
