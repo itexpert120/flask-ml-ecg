@@ -14,8 +14,13 @@ RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.d
 RUN apt-get install git-lfs -y
 
 #copy all the files
-COPY . .
-COPY .git/ .git
+# COPY . .
+# COPY .git/ .git
+
+# instead of copy, clone the repo
+RUN git clone https://github.com/itexp-tech/flask-api.git
+RUN cd flask-api
+
 RUN git lfs install
 RUN git fetch --prune
 RUN git checkout main
