@@ -18,8 +18,8 @@ RUN apt-get install git-lfs -y
 # COPY .git/ .git
 
 # instead of copy, clone the repo
-RUN git clone https://github.com/itexp-tech/flask-api.git
-RUN cd flask-api
+RUN git clone https://github.com/itexpert120/flask-ml-ecg
+RUN cd flask-ml-ecg
 
 RUN git lfs install
 RUN git fetch --prune
