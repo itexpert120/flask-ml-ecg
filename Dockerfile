@@ -4,14 +4,16 @@ FROM python:3.12.7
 #Set the working directory
 WORKDIR /
 
-#copy all the files
-COPY . ..
-
 #Install the dependencies
 RUN apt-get -y update
-RUN apt-get update && apt-get install -y python3 python3-pip
-RUN apt-get update && apt-get install ffmpeg libsm6 libxext6  -y
+RUN apt-get update && apt-get install python3 python3-pip -y
+RUN apt-get update && apt-get install ffmpeg libsm6 libxext6 git  -y
 RUN pip3 install -r requirements.txt
+
+#copy all the files
+RUN git lfs install
+COPY . .
+RUN git lfs pull
 
 #Expose the required port
 EXPOSE 5000
