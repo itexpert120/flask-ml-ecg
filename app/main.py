@@ -77,6 +77,11 @@ def preprocess_and_predict(image_path, model_path="ecg_classification_model.tfli
     }
 
 
+@app.route("/")
+def index():
+    return "Hello World!"
+
+
 @app.route("/predict", methods=["POST"])
 def predict():
     # Check if image file is present in request
