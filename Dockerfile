@@ -19,7 +19,7 @@ RUN curl -o ecg_classification_model.tflite https://utfs.io/f/A96e4rcb6rkCNlFFMl
 RUN pip3 install -r requirements.txt
 
 #Expose the required port
-EXPOSE 5000
+EXPOSE 56417
 
 # check if the model is present
 RUN ls -la
