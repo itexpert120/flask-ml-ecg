@@ -9,22 +9,12 @@ RUN apt-get -y update
 RUN apt-get update && apt-get install python3 python3-pip -y
 RUN apt-get update && apt-get install ffmpeg libsm6 libxext6 git  -y
 
-# git lfs
-RUN curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | bash
-RUN apt-get install git-lfs -y
-
 #copy all the files
-# COPY . .
+COPY . .
 # COPY .git/ .git
 
-# instead of copy, clone the repo
-RUN git clone https://github.com/itexpert120/flask-ml-ecg
-RUN cd flask-ml-ecg
-
-RUN git lfs install
-RUN git checkout main
-RUN git PULL
-RUN git lfs pull
+# curl to download the model
+RUN curl -o ecg_classification_model.tflite https://utfs.io/f/A96e4rcb6rkCNlFFMlS3jSv1CBXJKha6qZ2lQnfpMbGRHcsx
 
 RUN pip3 install -r requirements.txt
 
