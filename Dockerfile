@@ -17,4 +17,4 @@ RUN pip3 install -r requirements.txt
 EXPOSE 5000
 
 #Run the command
-CMD gunicorn main:app
+CMD ["waitress-serve", "app:app"]
