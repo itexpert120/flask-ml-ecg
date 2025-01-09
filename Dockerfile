@@ -17,4 +17,4 @@ RUN pip3 install -r requirements.txt
 EXPOSE 5000
 
 #Run the command
-CMD ["waitress-serve", "app:app"]
+CMD ["waitress-serve", "--host", "0.0.0.0", "--port", "5000", "app:app"]  
